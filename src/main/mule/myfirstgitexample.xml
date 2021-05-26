@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="713c633e-ea2d-43e0-9cca-46c2e31824a0" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="myfirstgitexampleFlow" doc:id="cddccb29-aba5-4275-b820-7693693301a7" >
+		<http:listener doc:name="Listener" doc:id="322f1362-ec6a-4973-8460-b204521e2675" config-ref="HTTP_Listener_config" path="/github"/>
+		<set-payload value="welcome to the github" doc:name="Set Payload" doc:id="5ddd57ee-ea9a-4456-b67c-770628818830" />
+	</flow>
+	<flow name="myfirstgitexampleFlow1" doc:id="f3e4db6d-9cd1-4532-b6ef-0c2e1a82fd07" >
+		<http:listener doc:name="Listener" doc:id="7f8b9d53-5de2-4f8b-a4e4-002389910cdb" config-ref="HTTP_Listener_config" path="/git"/>
+		<set-payload value='#["hi how are you?"]' doc:name="Set Payload" doc:id="54ed2142-77a2-4d76-8bb7-5e74d967294b" />
+	</flow>
+</mule>
